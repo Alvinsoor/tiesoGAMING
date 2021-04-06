@@ -1,0 +1,163 @@
+.vertical-menu {
+    width: 50px;
+    height: 100vh;
+    float: left;
+    position: fixed;
+}
+
+
+.media {
+    border: 1px solid #d5dbdd;
+    padding: 5px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.04);
+    /*background: #fff;*/
+    background: var(--bg-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+
+/* .vertical-menu a{
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}*/
+
+h1 {
+    /*color: rgb(109, 103, 134);*/
+    color: var(--secondary-color);
+    text-shadow: #555 2px 2px 3px;
+
+}
+
+a {
+    color: var(--primary-color);
+}
+
+/*h1 { color: #333333; font-family: 'Bitter', serif; font-size: 50px; font-weight: normal; line-height: 54px; margin: 0 0 54px; }*/
+
+.vertical-menu a:hover {
+    /*background-color: #000;*/
+    background-color: var(--bg-color)
+}
+
+
+.navStil {
+    /*background-color: rgba(255, 255, 255, .8) !important;*/
+    background-color: var(--bg-color) !important;
+}
+
+.content {
+    margin-left: 4%;
+}
+
+#imgHome {
+    background-image: url('../images/ITESOGAMING.jpg'); /* TO DO */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 10px;
+    min-height: 70vh;
+
+}
+
+.textHome {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.carousel-item img {
+    height: 450px !important;
+    width: 850px !important;
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --heading-color: #292922;
+}
+
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: #818cab;
+}
+
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
