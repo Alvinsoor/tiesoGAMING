@@ -1,86 +1,106 @@
 const fs = require('fs');
 const PATH = require('path');
-const USERS_DB = require('../data/users.json');
-let CURRENT_ID = 0;
-
-
-let uids = USERS_DB.map((obj)=>{return obj.uid});
-CURRENT_ID = Math.max(...uids)+1;
-console.log(`Current id: ${CURRENT_ID}`);
-// console.table(USERS_DB);
+const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@clusterequisde.kvtgn.mongodb.net/test?retryWrites=true&w=majority`;
+const clientConnect = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 
 class UsersController {
-    generateId(){
-        let id = CURRENT_ID;
-        CURRENT_ID++;
-        fs
-        return id;
-    }
-    persist() {
-        let path = PATH.join(__dirname, '..', 'data', 'users.json');
-        console.log(path);
-        fs.writeFileSync(path, JSON.stringify(USERS_DB));
-    }
 
-    insertUser(user){
-        user.uid = this.generateId();
-        USERS_DB.push(user);
-        console.log("paso por insertUser")
-        this.persist();
-        return user;
-    }
-    updateUser(user){
-        let index = USERS_DB.findIndex(element => element.uid === user.uid);
-        if(index>-1){
-            USERS_DB[index] = Object.assign(USERS_DB[index],user);
-            this.persist();
-            return user;
-        }else{
-            return undefined;
+    async insertUser(user) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {email: user.email}
+            const options = {upsert: true}
+            const update = {
+                $set: {
+                    ...user
+                }
+            }
+
+            return await usersCollection.updateOne(filter, update, options);
+        } catch (e) {
+            console.error(e);
         }
     }
 
-    deleteUser(user){
-        let index = USERS_DB.findIndex(element => element.uid === user.uid);
-        if(index>-1){
-            USERS_DB.splice(index,1);
-            return true;
-        }else{
-            return false;
+    async updateUser(user) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {email: user.email}
+            const options = {upsert: false}
+            const update = {
+                $set: {
+                    ...user
+                }
+            }
+
+            return await usersCollection.updateOne(filter, update, options);
+        } catch (e) {
+            console.error(e);
         }
-    } 
-    
-    getUserByCredentials(email, password){
-        let users = USERS_DB.filter((item,index,arr)=>{
-            console.log(item);
-            if( item.password.toLowerCase()=== password.toLowerCase() &&
-                item.email.toLowerCase() === email.toLowerCase()){
-                return true;
-            }
-            return false;
-        });
-        return users[0];
     }
 
-    getUniqueUser(nick,email){
-        let users = USERS_DB.filter((item,index,arr)=>{
-            if(item.nick.toLowerCase()=== nick.toLowerCase() &&
-                item.email.toLowerCase() === email.toLowerCase()){
-                return true;
-            }
-            return false;
-        });
-        return users[0];
+    async deleteUser(user) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {email: user.email};
+
+            return await usersCollection.deleteOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
-    getUser(id){
-        let user = USERS_DB.find(ele=>ele.uid ===id);
-        return user;
+    async getUserByCredentials(email, password) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {email, password};
+
+            return await usersCollection.findOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
-    getUserByNickname(nick){
-        let user = USERS_DB.find(ele=>ele.nick ===nick);
-        return user;
+    async getUniqueUser(nick, email) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {nick, email};
+
+            return await usersCollection.findOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    async getUser(_id) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {_id: new ObjectID(_id)};
+
+            return await usersCollection.findOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    async getUserByNickname(nick) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {nick};
+
+            return await usersCollection.findOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
     }
 }
 

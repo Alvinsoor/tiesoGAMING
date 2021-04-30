@@ -43,10 +43,10 @@ a {
 
 /*h1 { color: #333333; font-family: 'Bitter', serif; font-size: 50px; font-weight: normal; line-height: 54px; margin: 0 0 54px; }*/
 
-.vertical-menu a:hover {
-    /*background-color: #000;*/
-    background-color: var(--bg-color)
-}
+/*.vertical-menu a:hover {*/
+/*    !*background-color: #000;*!*/
+/*    background-color: var(--bg-color)*/
+/*}*/
 
 
 .navStil {

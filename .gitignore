@@ -156,3 +156,6 @@ storybook-static
 temp/
 
 # End of https://www.toptal.com/developers/gitignore/api/angular,node
+
+createDBtournament.js
+createDBusers.js

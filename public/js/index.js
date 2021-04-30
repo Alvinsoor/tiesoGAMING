@@ -14,10 +14,10 @@ function getTokenValue(cname) {
     var ca = decodedCookie.split(';');
     for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0) == ' ') {
+        while (c.charAt(0) === ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
         }
     }
@@ -45,7 +45,7 @@ function sendHTTPRequest(urlAPI, data, method, cbOK, cbError, authToken) {
     xhr.send(data);
     // 5. Una vez recibida la respuesta del servidor
     xhr.onload = function () {
-        if (xhr.status != 200 && xhr.status != 201) { // analizar el estatus de la respuesta HTTP 
+        if (xhr.status != 200 && xhr.status != 201) { // analizar el estatus de la respuesta HTTP
             // Ocurrió un error
             cbError(xhr.status + ': ' + xhr.statusText);
         } else {
