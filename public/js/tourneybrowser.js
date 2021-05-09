@@ -141,7 +141,7 @@ const tourneyToHTML = (tourneys) => {
         <div class="media-right align-self-center">
             <div class="row">
                 <div class="btn btn-primary" data-user='${JSON.stringify(tourneys)}' > <a class="text-white"
-                 href="oneTourney.html?id=${tourneys.tid}"><i class="fas fa-search"></i></a></div>
+                 href="oneTourney.html?id=${tourneys._id}"><i class="fas fa-search"></i></a></div>
             </div>
            
         </div>
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 changeText[4].textContent = user.fecha;
                 if (user.gamelist!==undefined) {
                     for (let i = 0; i < user.gamelist.length; i++) {
-                        gamesOfUser.push(gamesList.find(element => element.gid === user.gamelist[i].game));
+                        gamesOfUser.push(gamesList.find(element => element._id === user.gamelist[i].game));
                     }
 
                     let listgAndu = [];

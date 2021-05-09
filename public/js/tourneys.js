@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 changeText[3].textContent = user.email;
                 if (user.gamelist!==undefined) {
                     for (let i = 0; i < user.gamelist.length; i++) {
-                        gamesOfUser.push(gamesList.find(element => element.gid === user.gamelist[i].game));
+                        gamesOfUser.push(gamesList.find(element => element._id === user.gamelist[i].game));
                     }
 
                     let listgAndu = [];

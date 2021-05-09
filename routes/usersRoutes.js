@@ -64,19 +64,3 @@ router.delete('/:email', async (req, res) => {
     }
 });
 module.exports = router;
-
-/*router.get('/:email',(req,res)=>{
-    let userCtrl = new UsersController();
-    let users = userCtrl.getList();
-    if(req.params.email){
-        users = users.find(ele=> ele.email === req.params.email);
-        if(users){
-            res.send(users);
-        }else{
-            res.set('Content-Type','application/json');
-            res.status(204).send({});
-        }
-    }else{
-        res.status(400).send('missing params');
-    }
-});*/

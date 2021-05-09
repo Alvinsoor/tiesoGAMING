@@ -1,103 +1,158 @@
 const fs = require('fs');
 const PATH = require('path');
-const TOURNEY_DB = require('../data/tourneys.json');
-const USERS_DB = require('../data/users.json');
-let CURRENT_ID = 0;
-
-
-let tids = TOURNEY_DB.map((obj)=>{return obj.tid});
-CURRENT_ID = Math.max(...tids)+1;
-console.log(`Current id: ${CURRENT_ID}`);
-// console.table(TOURNEY_DB);
+const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@clusterequisde.kvtgn.mongodb.net/test?retryWrites=true&w=majority`;
+const clientConnect = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
 
 class TourneysController {
-    generateId(){
-        let id = CURRENT_ID;
-        CURRENT_ID++;
-        fs
-        return id;
-    }
 
-    persist(){
-        let path = PATH.join(__dirname,'..','data','tourneys.json');
-        console.log(path);
-        fs.writeFileSync(path,JSON.stringify(TOURNEY_DB));
-    }
+    async insertTourney(tourney) {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filter = {nombre: tourney.nombre}
+            const options = {upsert: true}
+            const update = {
+                $set: {
+                    ...tourney
+                }
+            }
 
-    insertTourney(tourney){
-        tourney.tid = this.generateId();
-        TOURNEY_DB.push(tourney);
-        this.persist();
-        return tourney;
-    }
-
-    updateTourney(tourney){
-        let index = TOURNEY_DB.findIndex(element => element.tid === tourney.tid);
-        if(index>-1){
-            TOURNEY_DB[index] = Object.assign(TOURNEY_DB[index],tourney);
-            this.persist();
-            return tourney;
-        }else{
-            return undefined;
+            return await tourneyCollection.updateOne(filter, update, options);
+        } catch (e) {
+            console.error(e);
         }
     }
 
-    deleteTourney(tourney){
-        let index = TOURNEY_DB.findIndex(element => element.tid === tourney.tid);
-        if(index>-1){
-            TOURNEY_DB.splice(index,1);
-            return true;
-        }else{
-            return false;
+    async updateTourney(tourney) {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filter = {_id: new ObjectID(tourney._id)}
+            const options = {upsert: false}
+            const update = {
+                $set: {
+                    ...tourney
+                }
+            }
+
+            return await tourneyCollection.updateOne(filter, update, options);
+        } catch (e) {
+            console.error(e);
         }
     }
 
-    getList(){
-        return TOURNEY_DB;
+    async deleteTourney(tourney) {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filter = {_id: new ObjectID(tourney._id)}
+
+
+            return await tourneyCollection.deleteOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
-    getTourney(id){
-        let tourney = TOURNEY_DB.find(ele=>ele.tid ===id);
-        return {...tourney};
+    async getList() {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+
+
+            return await tourneyCollection.find().toArray();
+        } catch (e) {
+            console.error(e);
+        }
+
     }
 
-    insertParticipant(user, tourney){
-        let indexu = USERS_DB.findIndex(element => element.uid === user.uid);
-        let indext = TOURNEY_DB.findIndex(element => element.tid === tourney.tid);
-        if(indexu>-1 && indext>-1 ){
-            tourney.gamelist.push({jugador: user.uid});
-            tourney.cantjug = tourney.gamelist.length;
-            TOURNEY_DB[indext] = Object.assign(TOURNEY_DB[indext],tourney);
-            this.persist();
-            return tourney;
-        }else{
-            return undefined;
-        }     
+    async getTourney(_id) {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filter = {_id: new ObjectID(_id)}
+
+            return await tourneyCollection.findOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
-    deleteParticipant(user, tourney){
-        let indexu = USERS_DB.findIndex(element => element.uid === user.uid);
-        let indext = TOURNEY_DB.findIndex(element => element.tid === tourney.tid);
-        if(indexu>-1 && indext>-1) { 
-            tourney.gamelist = tourney.gamelist.filter(element => element.jugador !== user.uid);
-            tourney.cantjug = tourney.gamelist.length;
-            TOURNEY_DB[indext] = Object.assign(TOURNEY_DB[indext],tourney);
-            this.persist();
-            return true;
-        }else{
-            return false;
-        }     
+    async insertParticipant(user, tourney) {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filterTourney = {_id: new ObjectID(tourney._id)}
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filterUser = {_id: new ObjectID(user._id)};
+            const userFound = await usersCollection.findOne(filterUser);
+            const tourneyFound = await tourneyCollection.findOne(filterTourney);
+            if (userFound !== undefined && tourneyFound !== undefined) {
+                tourneyFound.gamelist.push({jugador: userFound._id})
+                tourneyFound.cantjug = tourney.gamelist.length;
+                const options = {upsert: false}
+                const update = {
+                    $set: {
+                        ...tourneyFound
+                    }
+                }
+                return await tourneyCollection.updateOne(filterTourney, update, options);
+            } else return undefined;
+
+        } catch (e) {
+            console.error(e);
+        }
     }
 
-    startState(tourney){
-        let index = TOURNEY_DB.findIndex(element => element.tid === tourney.tid);
-        if(index>-1){
-            tourney.curso=true;
-            TOURNEY_DB[index] = Object.assign(TOURNEY_DB[index],tourney);
-            this.persist();
-            return tourney;
-        }else{
-            return undefined;
+    async deleteParticipant(user, tourney) {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filterTourney = {_id: new ObjectID(tourney._id)}
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filterUser = {_id: new ObjectID(user._id)};
+            const userFound = await usersCollection.findOne(filterUser);
+            const tourneyFound = await tourneyCollection.findOne(filterTourney);
+            if (userFound !== undefined && tourneyFound !== undefined) {
+                tourneyFound.gamelist.filter(element => element.jugador !== user._id)
+                tourneyFound.cantjug = tourney.gamelist.length;
+                const options = {upsert: false}
+                const update = {
+                    $set: {
+                        ...tourneyFound
+                    }
+                }
+                return await tourneyCollection.updateOne(filterTourney, update, options);
+            } else return undefined;
+
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    async startState(tourney) {
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filter = {_id: new ObjectID(tourney._id)}
+
+            const tournament = await tourneyCollection.findOne(filter);
+            if (tournament !== undefined) {
+                const options = {upsert: false}
+                const update = {
+                    $set: {
+                        ...tournament,
+                        curso: true
+                    }
+                }
+                return await tourneyCollection.updateOne(filter, update, options);
+            } else return undefined
+
+        } catch (e) {
+            console.error(e);
         }
     }
 

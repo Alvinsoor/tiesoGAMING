@@ -272,7 +272,7 @@ function getUser() {
             let gamesList = JSON.parse(res.data);
             if(usData.gamelist !==undefined){
                 for (let i = 0; i < usData.gamelist.length; i++) {
-                    gamesOfUser.push(gamesList.find(element => element.gid === usData.gamelist[i].game));
+                    gamesOfUser.push(gamesList.find(element => element._id === usData.gamelist[i].game));
                 }
                 let listgAndu = [];
                 for (let i in gamesOfUser) {
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 changeText[4].textContent = user.fecha;
                 if (user.gamelist !== undefined) {
                     for (let i = 0; i < user.gamelist.length; i++) {
-                        gamesOfUser.push(gamesList.find(element => element.gid === user.gamelist[i].game));
+                        gamesOfUser.push(gamesList.find(element => element._id === user.gamelist[i].game));
                     }
 
                     let listgAndu = [];

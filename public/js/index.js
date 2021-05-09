@@ -120,14 +120,14 @@ const gameListToHTML = (list, id) => {
 
 const carouselToHTML = (tourney) => {
     return ` 
-    <div class="${tourney.pos == 1 ? "carousel-item active" : "carousel-item"}">
+    <div class="${tourney.pos === 1 ? "carousel-item active" : "carousel-item"}">
         <img src="${tourney.image}" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
             <span class="d-block p-2 bg-dark text-white">
                 <h5>${tourney.nombre}</h5>
                 <p>${tourney.juego}</p>
                 <p>${tourney.fechai}</p>
-                <a href="../html/oneTourney.html?id=${tourney.tid}" type="button" class="btn btn-primary btn-lg btn-block">Ver Torneo</a>
+                <a href="../html/oneTourney.html?id=${tourney._id}" type="button" class="btn btn-primary btn-lg btn-block">Ver Torneo</a>
             </span>
         </div>
     </div>`
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 changeText[3].textContent = user.email;
                 if (user.gamelist !== undefined) {
                     for (let i = 0; i < user.gamelist.length; i++) {
-                        gamesOfUser.push(gamesList.find(element => element.gid === user.gamelist[i].game));
+                        gamesOfUser.push(gamesList.find(element => element._id === user.gamelist[i].game));
                     }
 
                     let listgAndu = [];
@@ -262,11 +262,11 @@ document.addEventListener('DOMContentLoaded', () => {
         let listForm;
         let valForm = []; //cambiable
         form.addEventListener('change', function () {
-            if (!form.querySelector('input:invalid') && document.getElementById('password1').value == document.getElementById('password2').value) {
+            if (!form.querySelector('input:invalid') && document.getElementById('password1').value === document.getElementById('password2').value) {
                 listForm = form.querySelectorAll('input').values();
                 let valuesForm = [];
                 for (const i of listForm) {
-                    if (!(i.type == 'radio' && !i.checked))
+                    if (!(i.type === 'radio' && !i.checked))
                         valuesForm.push(i.value);
                 }
                 valForm = valuesForm; //cambiable

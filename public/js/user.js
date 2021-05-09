@@ -126,7 +126,7 @@ function getUser() {
             let gamesList = JSON.parse(res.data);
             if(usData.gamelist !==undefined){
                 for (let i = 0; i < usData.gamelist.length; i++) {
-                    gamesOfUser.push(gamesList.find(element => element.gid === usData.gamelist[i].game));
+                    gamesOfUser.push(gamesList.find(element => element._id === usData.gamelist[i].game));
                 }
                 let listgAndu = [];
                 for (let i in gamesOfUser) {
