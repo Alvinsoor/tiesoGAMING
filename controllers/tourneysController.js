@@ -37,7 +37,6 @@ class TourneysController {
                     ...rest
                 }
             }
-            console.log(filter,update)
             return await tourneyCollection.updateOne(filter, update, options);
         } catch (e) {
             console.error(e);
@@ -75,7 +74,6 @@ class TourneysController {
             const client = await clientConnect.connect();
             const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
             const filter = {_id: new ObjectID(_id)}
-            console.log(filter)
 
             return await tourneyCollection.findOne(filter);
         } catch (e) {

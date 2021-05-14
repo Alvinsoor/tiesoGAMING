@@ -160,11 +160,8 @@ class BrowserComponent {
         }
     }
     getTourneysPage(page, filter) {
-        console.log(page);
         this.proyectoService.getTourneysFilter(filter, page).then(result => {
-            console.log(result);
             let listTourneys = result.content;
-            console.log(listTourneys);
             this.totalPages = result.totalPages;
             this.tourneyListToHTML(listTourneys, 'lista');
         });
@@ -773,7 +770,6 @@ class DetailComponent {
     `;
     }
     gameUserListToHTML(list, id) {
-        console.log("list: " + list);
         if (id && list && document.getElementById(id)) {
             document.getElementById(id).innerHTML = list.map(this.gameUserToHTML).join('');
         }
@@ -827,7 +823,6 @@ class DetailComponent {
             image: listInputs[5].value
         };
         this.proyectoService.updateTourney(myParam, data).then(result => {
-            console.log(result);
         });
     }
     ngOnInit() {
@@ -849,22 +844,15 @@ class DetailComponent {
         const myParam = urlParams.get('id');
         this.proyectoService.getTourney(myParam || '').then(result => {
             let tourneyData = result;
-            console.log("entra al la funcion 1");
-            console.log([result]);
             this.listTourney = [result];
             //this.tourneyDataToHTML(tourneyData, 'tourney');
             this.gameUserListToHTML(tourneyData.gamelist, 'listGamesAccount');
         });
     }
     editarTorneo(item) {
-        console.log("editar torneo", item.admin, this.userID);
         this.editTourney = item;
         if (this.userID == item.admin) {
-            console.log("entra aqui");
             this.isAdmin = true;
-        }
-        else {
-            console.log("no puedes editar");
         }
     }
     formNtourney() {
@@ -886,8 +874,6 @@ class DetailComponent {
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('id') || '';
         this.proyectoService.updateMyTourney(tourney, myParam).then(res => {
-            console.log("respuesta de guardado");
-            console.log(res);
             this.router.navigate(['/browser']);
         }).catch(err => {
             console.log("respuesta de error");
@@ -895,34 +881,24 @@ class DetailComponent {
         });
     }
     eliminarTorneo(item) {
-        console.log("eliminar torneo");
         if (this.userID == item.admin) {
             const urlParams = new URLSearchParams(window.location.search);
             const myParam = urlParams.get('id') || '';
             this.proyectoService.deleteTourney(myParam).then(res => {
-                console.log("respuesta de eliminado");
-                console.log(res);
                 this.router.navigate(['/browser']);
             }).catch(err => {
                 console.log("respuesta de error");
                 console.log(err);
             });
         }
-        else {
-            console.log("no puedes editar");
-        }
     }
     addUsertoTourney() {
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('id') || '';
         this.proyectoService.addUserToTourney(myParam).then(res => {
-            console.log("respuesta se agrego participante");
-            console.log(res);
             //window.location.reload()
             this.proyectoService.getTourney(myParam || '').then(result => {
                 let tourneyData = result;
-                console.log("entra al la funcion 1");
-                console.log([result]);
                 this.listTourney = [result];
                 //this.tourneyDataToHTML(tourneyData, 'tourney');
                 this.gameUserListToHTML(tourneyData.gamelist, 'listGamesAccount');
@@ -1860,7 +1836,6 @@ class ProfileComponent {
     }
     ngOnInit() {
         this.proyectoService.getUserbyId().then(res => {
-            console.log(res);
             this.user = {
                 apellidos: res.apellidos,
                 email: res.email,
@@ -1876,7 +1851,6 @@ class ProfileComponent {
         this.bandera2 = true;
     }
     formUser() {
-        console.log("entra aqui");
         let data = this.formData.value;
         let dataUs = {
             nombre: data.nombre == '' ? undefined : data.nombre,
@@ -1885,9 +1859,7 @@ class ProfileComponent {
             password: data.password == '' ? undefined : data.password
         };
         this.proyectoService.updateUser(dataUs).then(res => {
-            console.log("acutalizado", res);
             this.bandera2 = false;
-            this.ngOnInit;
         }).catch(err => {
             console.log("no se pudo actualizar");
             this.bandera2 = false;
@@ -2223,10 +2195,8 @@ class LoginComponent {
     ngOnInit() {
         this.socialAuthServices.authState.subscribe(user => {
             if (user) {
-                console.log('Se inició sesion: ', user);
                 this.sessionService.googleLogin(user.idToken).then(res => {
                     this.authService.saveToken(res.token);
-                    console.log('Respuesta del API: ', res);
                     this.router.navigate(['/home']);
                 }).catch(err => {
                     console.log('No se pudo iniciar sesion :c sad', err.error.err);
@@ -2242,11 +2212,9 @@ class LoginComponent {
     }
     loginCredentials() {
         //CUANDO PRECionan en boton de login te regresa ya los datos que ingreso el ususario en el console salen como prueba
-        //Ahora mandas ese objeto con email y password para comparar con el back y mongo 
+        //Ahora mandas ese objeto con email y password para comparar con el back y mongo
         //si el usuario existe te regresa el token y te manda a HOME guarda el token too
-        console.log('Credenciales', this.credentials);
         this.sessionService.loginByCredentials(this.credentials).then(res => {
-            console.log('Respuesta del API', res);
             this.authService.saveToken(res.token);
             this.router.navigate(['/home']);
         }).catch(err => {
@@ -2398,17 +2366,12 @@ class RegisterComponent {
     ngOnInit() {
         this.socialAuthServices.authState.subscribe(user => {
             if (user) {
-                console.log('Se inició sesion: ', user);
                 this.sessionService.googleRegister(user.idToken).then(res => {
                     this.authService.saveToken(res.token);
-                    console.log('Respuesta del API: ', res);
                     this.router.navigate(['/home']);
                 }).catch(err => {
                     console.log('No se pudo iniciar sesion :c sad', err.error.err);
                 });
-            }
-            else {
-                console.log('No hay sesion');
             }
         });
     }
@@ -2416,7 +2379,6 @@ class RegisterComponent {
         this.socialAuthServices.signIn(angularx_social_login__WEBPACK_IMPORTED_MODULE_0__["GoogleLoginProvider"].PROVIDER_ID);
     }
     formRegister() {
-        console.log('entra a la funcion');
         if (this.formReg.valid) {
             let data = this.formReg.value;
             //GUARDAS EL USUARIO EN LA VARAIBLE con sus atrivutos como los guardas en mongodb osea dataUs se va a guardar en mongodb
@@ -2427,9 +2389,7 @@ class RegisterComponent {
                 nombre: data.nombre,
                 password: data.password
             };
-            console.log('form valido', dataUs);
             this.sessionService.registerByCredentials(dataUs).then(res => {
-                console.log('Respuesta del API', res);
                 this.authService.saveToken(res.token);
                 this.router.navigate(['/home']);
             }).catch(err => {
@@ -2799,7 +2759,6 @@ class NewTourneyComponent {
     formNtourney() {
         let formTourn = document.getElementById('falseForm');
         let list = formTourn.querySelectorAll('.formTourney');
-        console.log(list);
         this.createTourney(list);
     }
     createTourney(valforms) {
@@ -2815,10 +2774,7 @@ class NewTourneyComponent {
             plat: "https://seeklogo.com/images/M/minecraft-logo-5EAD3A1535-seeklogo.com.png",
             image: valforms[7].value,
         };
-        console.log(tourney);
         this.proyectoService.addTourney(tourney).then(res => {
-            console.log("respuesta de guardado");
-            console.log(res);
             this.router.navigate(['/browser']);
         }).catch(err => {
             console.log("respuesta de error");
@@ -3061,7 +3017,6 @@ class UserService {
         this.statusUser.subscribe((res) => {
             this.userName = res.userName;
             this.usPic = res.usPic;
-            console.log("hola", res);
         });
     }
     statusUs(obj) {

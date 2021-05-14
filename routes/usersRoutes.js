@@ -20,7 +20,6 @@ router.post('/', async (req, res) => {
 
 
 router.get('/', async (req, res) => {
-    console.log("entra al get user",req.query._id)
     let user
     if (req.query._id) {
         user = await usersCtrl.getUser(req.query._id);

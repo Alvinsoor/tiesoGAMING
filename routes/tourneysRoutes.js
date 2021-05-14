@@ -10,15 +10,12 @@ const router = express();
 
 async function authentication(req, res, next) {
     let xauth = req.headers.authorization;
-    console.log(req.headers)
     if (xauth) {
         let id = xauth.split("-").pop();
         let userctrl = new usersController();
         let user = await userctrl.getUser(id);
-        console.log("comparar user.token con xauth")
         if (user && user.token === xauth) {
             req._id = user._id;
-            console.log("termino middleware")
             next();
         } else {
             res.status(401).send('Not authorized 2');
@@ -129,7 +126,6 @@ router.get('/carousel', async (req, res) => {
             juego: await gamesCtrl.getGame(tourney.juego) !== undefined ? (await gamesCtrl.getGame(tourney.juego)).nombre : 'Game Not Found'
         }
     }))
-    console.log(tourneys)
 
     res.send({content: tourneys, page: page, totalPages: totalPages});
 
@@ -142,14 +138,11 @@ router.get('/:tid', async (req, res) => {
     let usersCtrl = new usersController();
     
     let tourney = await tourneyCtrl.getTourney(req.params.tid);
-    console.log(tourney);
     if (tourney) {
         tourney.juego = await gamesCtrl.getGame(tourney.juego) !== undefined ? (await gamesCtrl.getGame(tourney.juego)).nombre : 'Game Not Found';
         tourney.gamelist = await Promise.all(tourney.gamelist.map(async (user) => {
-            console.log(user.jugador,await usersCtrl.getUser(user.jugador))
             return await usersCtrl.getUser(user.jugador);
         }))
-        console.log(tourney)
         res.send(tourney);
     } else {
         res.set('Content-Type', 'application/json');
@@ -161,10 +154,7 @@ router.put('/:tid',authentication, async (req, res) => {
    
     let tourneyCtrl = new tourneysController();
     let tourney = await tourneyCtrl.getTourney(req.params.tid);
-    console.log(req._id)
-    console.log(typeof req._id)
     if (tourney.admin.trim().toLowerCase() !== req._id.toString().trim().toLowerCase()) {
-        console.log("AQUI ENTRA")
         res.set('Content-Type', 'application/json');
         res.status(403).send({message: 'Not Admin'});
         return;
