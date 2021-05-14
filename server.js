@@ -171,10 +171,15 @@ app.get('/', (req, res) => {
     res.redirect("/html/index.html");
 });
 
+app.use(function(req, res, next){
+    res.sendFile(path.join(__dirname, '/public/frontendangular/index.html'));
+})
 
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
 })
+
+
 
 let token = "Nmt3yIyNeV-10001"
 let tokSep = token.split("-");
