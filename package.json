@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "dependencies": {
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
@@ -13,7 +12,8 @@
     "mongodb": "^3.6.6",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
-    "randomatic": "^3.1.1"
+    "randomatic": "^3.1.1",
+    "google-auth-library": "^7.0.4"
   },
   "devDependencies": {},
   "scripts": {
