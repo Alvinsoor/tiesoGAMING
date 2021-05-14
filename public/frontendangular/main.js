@@ -127,7 +127,7 @@ class BrowserComponent {
                   <h5>${tourney.nombre}</h5>
                   <p>${tourney.juego}</p>
                   <p>${tourney.fechai}</p>
-                  <a routerLink='/detail' [queryParams]="{id: ${tourney._id}" type="button" class="btn btn-primary btn-lg btn-block">Ver Torneo</a>
+                  <a href="/detail?id=${tourney._id}" type="button" class="btn btn-primary btn-lg btn-block">Ver Torneo</a>
               </span>
           </div>
       </div>`;
@@ -148,7 +148,7 @@ class BrowserComponent {
         <div class="media-right align-self-center" *ngIf="!loggedIn">
             <div class="row" >
                 <div  class="btn btn-primary" data-user='${JSON.stringify(tourneys)}' > <a class="text-white"
-                 routerLink='/detail' [queryParams]="{id: ${tourneys._id}"><i class="fas fa-search"></i></a></div>
+                 href="/detail?id=${tourneys._id}"><i class="fas fa-search"></i></a></div>
             </div>
 
         </div>
@@ -1321,7 +1321,7 @@ class HomeComponent {
                   <h5>${tourney.nombre}</h5>
                   <p>${tourney.juego}</p>
                   <p>${tourney.fechai}</p>
-                  <a routerLink='/detail' [queryParams]="{id: ${tourney._id}" type="button" class="btn btn-primary btn-lg btn-block">Ver Torneo</a>
+                  <a href="/detail?id=${tourney._id}" type="button" class="btn btn-primary btn-lg btn-block">Ver Torneo</a>
               </span>
           </div>
       </div>`;
@@ -1339,12 +1339,6 @@ class HomeComponent {
         this.proyectoService.getTourneys2().then(result => {
             const listTourneys = result.content;
             document.getElementById('tourneysRecientes').innerHTML = listTourneys.map(this.carouselToHTML).join('');
-        }).catch(err => {
-            console.log("error en lista de Torneos: ", err);
-        });
-        this.proyectoService.getTourneys3().then(result => {
-            const listTourneys = result.content;
-            document.getElementById('tourneysProximos').innerHTML = listTourneys.map(this.carouselToHTML).join('');
         }).catch(err => {
             console.log("error en lista de Torneos: ", err);
         });
