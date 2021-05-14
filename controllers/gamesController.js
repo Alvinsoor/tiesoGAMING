@@ -49,11 +49,11 @@ class GamesController {
         }
     }
 
-    async getGame(_id){
+    async getGame(value){
         try {
             const client = await clientConnect.connect();
             const gameCollection = client.db('torneosIteso').collection('itesoGames');
-            const filter = {_id: new ObjectID(_id)}
+            const filter = {value}
 
 
             return await gameCollection.findOne(filter);

@@ -31,12 +31,13 @@ class TourneysController {
             const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
             const filter = {_id: new ObjectID(tourney._id)}
             const options = {upsert: false}
+            const {_id, ...rest}= tourney;
             const update = {
                 $set: {
-                    ...tourney
+                    ...rest
                 }
             }
-
+            console.log(filter,update)
             return await tourneyCollection.updateOne(filter, update, options);
         } catch (e) {
             console.error(e);
@@ -74,6 +75,7 @@ class TourneysController {
             const client = await clientConnect.connect();
             const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
             const filter = {_id: new ObjectID(_id)}
+            console.log(filter)
 
             return await tourneyCollection.findOne(filter);
         } catch (e) {
@@ -151,6 +153,19 @@ class TourneysController {
                 return await tourneyCollection.updateOne(filter, update, options);
             } else return undefined
 
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+
+    async getTourneysOfUser(admin){
+        try {
+            const client = await clientConnect.connect();
+            const tourneyCollection = client.db('torneosIteso').collection('itesoTourney');
+            const filter = {admin}
+
+            return await tourneyCollection.find(filter);
         } catch (e) {
             console.error(e);
         }

@@ -102,6 +102,21 @@ class UsersController {
             console.error(e);
         }
     }
+
+    async getUniqueUserEmail(email) {
+        try {
+            const client = await clientConnect.connect();
+            const usersCollection = client.db('torneosIteso').collection('itesousers');
+            const filter = {email};
+
+            return await usersCollection.findOne(filter);
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+
+    
 }
 
 module.exports = UsersController;

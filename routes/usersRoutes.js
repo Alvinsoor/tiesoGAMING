@@ -18,10 +18,12 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.get('/:_id', async (req, res) => {
+
+router.get('/', async (req, res) => {
+    console.log("entra al get user",req.query._id)
     let user
-    if (req.params._id) {
-        user = await usersCtrl.getUser(req.params._id);
+    if (req.query._id) {
+        user = await usersCtrl.getUser(req.query._id);
         if (user) {
             res.send(user);
         } else {
@@ -33,10 +35,10 @@ router.get('/:_id', async (req, res) => {
     }
 });
 
-router.put('/:_id', async (req, res) => {
+router.put('/', async (req, res) => {
     let b = req.body;
-    if (req.params._id && (b.nombre || b.apellidos || b.password || b.image)) {
-        let u = await usersCtrl.getUser(req.params._id);
+    if (req.query._id && (b.nombre || b.apellidos || b.password || b.image)) {
+        let u = await usersCtrl.getUser(req.query._id);
         if (u) {
             u = {
                 ...u,

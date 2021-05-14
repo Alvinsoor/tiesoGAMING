@@ -140,7 +140,7 @@ class BrowserComponent {
         </div>
         <div class="media-body">
                 <h4>${tourneys.nombre}</h4>
-                <p>Juego: ${tourneys.juego}</p>
+                <p>Juego: ${JSON.stringify(tourneys.juego)}</p>
                 <p>Fecha: ${tourneys.fechai} </p>
                 <p>Costo: ${tourneys.cost} </p>
                 <p>Direccion: ${tourneys.place}</p>
@@ -164,6 +164,7 @@ class BrowserComponent {
         this.proyectoService.getTourneysFilter(filter, page).then(result => {
             console.log(result);
             let listTourneys = result.content;
+            console.log(listTourneys);
             this.totalPages = result.totalPages;
             this.tourneyListToHTML(listTourneys, 'lista');
         });
@@ -526,8 +527,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/common/services/auth.service */ "AhZb");
 /* harmony import */ var src_app_common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/common/services/proyecto.service */ "TMDr");
 /* harmony import */ var src_app_common_services_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/common/services/user.service */ "zgZh");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 
 
@@ -537,7 +538,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function DetailComponent_form_4_Template(rf, ctx) { if (rf & 1) {
+    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function DetailComponent_form_4_Template_form_submit_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.formNtourney(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 86);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Juego:");
@@ -617,8 +620,8 @@ function DetailComponent_form_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](52, "Escoge un logo para tu torneo...");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](53, "br");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](54, "input", 99);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 102);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](54, "input", 102);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "div", 103);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](56, "No se escogio un archivo valido");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -626,26 +629,26 @@ function DetailComponent_form_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](59, "Direccion (puedes poner online)");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](60, "input", 103);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](60, "input", 104);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "div", 96);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](62, "No es valido");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "button", 104);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](63, "button", 105);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](64, "Upgrade form");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function DetailComponent_div_7_Template(rf, ctx) { if (rf & 1) {
-    const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 105);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 106);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 107);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 108);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "img", 109);
+    const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 106);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 108);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 109);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "img", 110);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 110);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 111);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "h4");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -667,43 +670,44 @@ function DetailComponent_div_7_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 111);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 112);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "a", 112);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DetailComponent_div_7_Template_a_click_20_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const item_r2 = ctx.$implicit; const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.editarTorneo(item_r2); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "i", 113);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "a", 113);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DetailComponent_div_7_Template_a_click_20_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const item_r4 = ctx.$implicit; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r5.editarTorneo(item_r4); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "i", 114);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 16);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "a", 114);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DetailComponent_div_7_Template_a_click_23_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const item_r2 = ctx.$implicit; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r5.eliminarTorneo(item_r2.admin); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "i", 115);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "a", 115);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DetailComponent_div_7_Template_a_click_23_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r6); const item_r4 = ctx.$implicit; const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r7.eliminarTorneo(item_r4); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "i", 116);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const item_r2 = ctx.$implicit;
+    const item_r4 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", item_r2.image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", item_r4.image, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r2.nombre);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r4.nombre);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Juego: ", item_r2.juego, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Juego: ", item_r4.juego, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Fecha de inicio: ", item_r2.fechai, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Fecha de inicio: ", item_r4.fechai, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Hora: ", item_r2.hora, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Hora: ", item_r4.hora, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Costo: ", item_r2.cost, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Costo: ", item_r4.cost, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Lugar: ", item_r2.place, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Lugar: ", item_r4.place, " ");
 } }
 class DetailComponent {
-    constructor(authService, proyectoService, userService) {
+    constructor(authService, proyectoService, userService, router) {
         this.authService = authService;
         this.proyectoService = proyectoService;
         this.userService = userService;
+        this.router = router;
         this.user = {
             userName: "",
             lastName: "",
@@ -863,18 +867,74 @@ class DetailComponent {
             console.log("no puedes editar");
         }
     }
+    formNtourney() {
+        let formTourn = document.getElementById('falseForm');
+        let list = formTourn.querySelectorAll('.formTourney');
+        this.updateMyTourney(list);
+    }
+    updateMyTourney(valforms) {
+        let tourney = {
+            nombre: valforms[1].value,
+            juego: valforms[0].value,
+            fechai: valforms[3].value,
+            fechaf: valforms[4].value,
+            hora: valforms[5].value,
+            limit: +valforms[2].value,
+            place: valforms[7].value,
+            image: valforms[6].value,
+        };
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('id') || '';
+        this.proyectoService.updateMyTourney(tourney, myParam).then(res => {
+            console.log("respuesta de guardado");
+            console.log(res);
+            this.router.navigate(['/browser']);
+        }).catch(err => {
+            console.log("respuesta de error");
+            console.log(err);
+        });
+    }
     eliminarTorneo(item) {
         console.log("eliminar torneo");
-        this.editTourney = item;
         if (this.userID == item.admin) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const myParam = urlParams.get('id') || '';
+            this.proyectoService.deleteTourney(myParam).then(res => {
+                console.log("respuesta de eliminado");
+                console.log(res);
+                this.router.navigate(['/browser']);
+            }).catch(err => {
+                console.log("respuesta de error");
+                console.log(err);
+            });
         }
         else {
             console.log("no puedes editar");
         }
     }
+    addUsertoTourney() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('id') || '';
+        this.proyectoService.addUserToTourney(myParam).then(res => {
+            console.log("respuesta se agrego participante");
+            console.log(res);
+            //window.location.reload()
+            this.proyectoService.getTourney(myParam || '').then(result => {
+                let tourneyData = result;
+                console.log("entra al la funcion 1");
+                console.log([result]);
+                this.listTourney = [result];
+                //this.tourneyDataToHTML(tourneyData, 'tourney');
+                this.gameUserListToHTML(tourneyData.gamelist, 'listGamesAccount');
+            });
+        }).catch(err => {
+            console.log("respuesta de error");
+            console.log(err);
+        });
+    }
 }
-DetailComponent.ɵfac = function DetailComponent_Factory(t) { return new (t || DetailComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_2__["ProyectoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"])); };
-DetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DetailComponent, selectors: [["app-detail"]], decls: 131, vars: 2, consts: [[1, "content"], ["id", "imgHome"], [1, "container", "p-4"], [1, "col"], ["class", "needs-validation", 4, "ngIf"], [1, "textHome"], [1, "container"], ["class", "row  justify-content-center", "id", "tourney", 4, "ngFor", "ngForOf"], [1, "row", "justify-content-center", "my-3"], [1, "row", "justify-content-center"], ["id", "listGamesAccount", 1, "", 2, "overflow-y", "scroll", "width", "70%", "height", "125px", "display", "flex", "flex-direction", "column-reverse"], [1, "media"], ["src", "https://randomuser.me/api/portraits/men/4.jpg", "alt", "...", 1, "mr-3", 2, "width", "30px", "height", "30px"], [1, "media-body", "border-1"], [1, "mt-0"], [1, "align-self-center", "text-right", "mx-2"], [1, "row"], ["id", "addParticipant", "data-toggle", "modal", "data-target", "#addFormModal", 1, "btn", "btn-primary", "mt-2"], [1, "fas", "fa-user-plus"], [1, "row", "my-3", "align-self-center"], ["href", "https://challonge.com/es/tournament/bracket_generator", "type", "button", 1, "btn", "btn-info", "btn-lg", "btn-block"], ["id", "idModalLogin", "tabindex", "-1", "role", "dialog", "aria-labelledby", "myModalLabel", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "cascading-modal"], [1, "modal-content"], [1, "modal-c-tabs"], ["role", "tablist", 1, "nav", "nav-tabs", "md-tabs", "tabs-2", "light-blue", "darken-3"], [1, "nav-item"], ["data-toggle", "tab", "href", "#panel7", "role", "tab", 1, "nav-link", "active"], [1, "fas", "fa-user", "mr-1"], ["data-toggle", "tab", "href", "#panel8", "role", "tab", 1, "nav-link"], [1, "fas", "fa-user-plus", "mr-1"], [1, "tab-content"], ["id", "panel7", "role", "tabpanel", 1, "tab-pane", "fade", "in", "show", "active"], [1, "modal-body", "mb-1"], [1, "md-form", "form-sm", "mb-5"], [1, "fas", "fa-envelope", "prefix"], ["type", "email", "id", "modalLRInput10", 1, "form-control", "form-control-sm", "validate"], ["data-error", "wrong", "data-success", "right", "for", "modalLRInput10"], [1, "md-form", "form-sm", "mb-4"], [1, "fas", "fa-lock", "prefix"], ["type", "password", "id", "modalLRInput11", 1, "form-control", "form-control-sm", "validate"], ["data-error", "wrong", "data-success", "right", "for", "modalLRInput11"], [1, "text-center", "mt-2"], ["id", "loginBtn", 1, "btn", "btn-primary", "btn-block"], [1, "fas", "fa-sign-in", "ml-1"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-outline-info", "waves-effect", "ml-auto"], ["id", "panel8", "role", "tabpanel", 1, "tab-pane", "fade"], [1, "modal-body", "mx-1"], [1, "md-form", "form-sm", "mb-2"], [1, "fas", "fa-user"], ["type", "text", "id", "nick", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "nick"], ["type", "text", "id", "name", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "name"], ["type", "text", "id", "last-name", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "last-name"], ["type", "email", "id", "email", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "email"], ["type", "password", "id", "password1", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["type", "password", "id", "password2", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "password2"], [1, "text-center", "form-sm", "mt-2"], ["id", "createUserBtn", "disabled", "", 1, "btn", "btn-primary", "btn-block"], ["id", "responseMSG", 1, "response"], ["id", "exampleModal", "tabindex", "-1", "aria-labelledby", "exampleModalLabel", "aria-hidden", "true", 1, "modal", "fade"], [1, "modal-dialog"], [1, "modal-header"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "card", "mb-3", 2, "max-width", "540px"], [1, "row", "no-gutters"], [1, "col-md-4"], ["src", "https://randomuser.me/api/portraits/men/4.jpg", "alt", "...", 1, "rounded-circle", "userData", "card-img", 2, "width", "150px", "height", "150px"], [1, "col-md-8"], [1, "card-body"], [1, "card-title", "userData"], [1, "card-text"], [1, "text-muted", "userData"], [1, "card-text", "userData"], ["id", "listGamesOfUser", 2, "overflow-y", "scroll", "width", "500px", "height", "125px", "display", "flex", "flex-direction", "column-reverse"], [1, "text-center"], ["routerLink", "", "role", "button", 1, "btn", "btn-primary", "btn-lg", "m-2"], ["type", "button", 1, "btn", "btn-secondary", "btn-lg", "m-2"], [1, "needs-validation"], [1, "form-group"], ["size", "1", "id", "torneoGame", "required", "", 1, "custom-select", "custom-select-lg", "mb-3"], ["value", ""], ["value", "dbz"], ["value", "hs"], ["value", "lol"], ["value", "ow"], ["value", "ssbm"], ["value", "ssbu"], ["type", "text", "id", "nomTorneo", "placeholder", "Ingresa el nombre del torneo...", "required", "", 1, "form-control"], [1, "invalid-tooltip"], [1, "form-row"], [1, "col-md-4", "mb-3"], ["type", "number", "id", "numTorneo", "placeholder", "Ingrese numero de jugadores", "required", "", 1, "form-control"], ["type", "date", "id", "fechaTorneo", "required", "", 1, "form-control"], ["type", "time", "id", "horaTorneo", "required", "", 1, "form-control"], [1, "invalid-feedback"], ["type", "text", "id", "dirTorneo", "placeholder", "indique la direccion del torneo", "required", "", 1, "form-control"], ["type", "submit", 1, "btn", "btn-primary"], ["id", "tourney", 1, "row", "justify-content-center"], [1, "col-8", "mt-2"], [1, "media", "col-11", "mt-2", "border", "text-center"], [1, "media-left", "align-self-center", "mr-3"], [1, "rounded-circle", "width", 2, "width", "200px", "height", "200px", 3, "src"], [1, "media-body"], [1, "align-self-center", "text-right", "bg-light", "mx-2"], ["id", "editTourney", "data-user", "", "data-toggle", "modal", "data-target", "#updateFormModal", 1, "btn", "btn-primary", "mt-2", 3, "click"], [1, "fas", "fa-pencil-alt", "edit"], ["id", "deleteTourney", "data-toggle", "modal", "data-target", "#deleteFormModal", 1, "btn", "btn-primary", "mt-2", 3, "click"], [1, "fas", "fa-trash-alt", "remove"]], template: function DetailComponent_Template(rf, ctx) { if (rf & 1) {
+DetailComponent.ɵfac = function DetailComponent_Factory(t) { return new (t || DetailComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_2__["ProyectoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"])); };
+DetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DetailComponent, selectors: [["app-detail"]], decls: 131, vars: 2, consts: [[1, "content"], ["id", "imgHome"], [1, "container", "p-4"], [1, "col"], ["class", "needs-validation", "id", "falseForm", 3, "submit", 4, "ngIf"], [1, "textHome"], [1, "container"], ["class", "row  justify-content-center", "id", "tourney", 4, "ngFor", "ngForOf"], [1, "row", "justify-content-center", "my-3"], [1, "row", "justify-content-center"], ["id", "listGamesAccount", 1, "", 2, "overflow-y", "scroll", "width", "70%", "height", "125px", "display", "flex", "flex-direction", "column-reverse"], [1, "media"], ["src", "https://randomuser.me/api/portraits/men/4.jpg", "alt", "...", 1, "mr-3", 2, "width", "30px", "height", "30px"], [1, "media-body", "border-1"], [1, "mt-0"], [1, "align-self-center", "text-right", "mx-2"], [1, "row"], ["id", "addParticipant", "data-toggle", "modal", "data-target", "#addFormModal", 1, "btn", "btn-primary", "mt-2", 3, "click"], [1, "fas", "fa-user-plus"], [1, "row", "my-3", "align-self-center"], ["href", "https://challonge.com/es/tournament/bracket_generator", "type", "button", 1, "btn", "btn-info", "btn-lg", "btn-block"], ["id", "idModalLogin", "tabindex", "-1", "role", "dialog", "aria-labelledby", "myModalLabel", "aria-hidden", "true", 1, "modal", "fade"], ["role", "document", 1, "modal-dialog", "cascading-modal"], [1, "modal-content"], [1, "modal-c-tabs"], ["role", "tablist", 1, "nav", "nav-tabs", "md-tabs", "tabs-2", "light-blue", "darken-3"], [1, "nav-item"], ["data-toggle", "tab", "href", "#panel7", "role", "tab", 1, "nav-link", "active"], [1, "fas", "fa-user", "mr-1"], ["data-toggle", "tab", "href", "#panel8", "role", "tab", 1, "nav-link"], [1, "fas", "fa-user-plus", "mr-1"], [1, "tab-content"], ["id", "panel7", "role", "tabpanel", 1, "tab-pane", "fade", "in", "show", "active"], [1, "modal-body", "mb-1"], [1, "md-form", "form-sm", "mb-5"], [1, "fas", "fa-envelope", "prefix"], ["type", "email", "id", "modalLRInput10", 1, "form-control", "form-control-sm", "validate"], ["data-error", "wrong", "data-success", "right", "for", "modalLRInput10"], [1, "md-form", "form-sm", "mb-4"], [1, "fas", "fa-lock", "prefix"], ["type", "password", "id", "modalLRInput11", 1, "form-control", "form-control-sm", "validate"], ["data-error", "wrong", "data-success", "right", "for", "modalLRInput11"], [1, "text-center", "mt-2"], ["id", "loginBtn", 1, "btn", "btn-primary", "btn-block"], [1, "fas", "fa-sign-in", "ml-1"], [1, "modal-footer"], ["type", "button", "data-dismiss", "modal", 1, "btn", "btn-outline-info", "waves-effect", "ml-auto"], ["id", "panel8", "role", "tabpanel", 1, "tab-pane", "fade"], [1, "modal-body", "mx-1"], [1, "md-form", "form-sm", "mb-2"], [1, "fas", "fa-user"], ["type", "text", "id", "nick", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "nick"], ["type", "text", "id", "name", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "name"], ["type", "text", "id", "last-name", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "last-name"], ["type", "email", "id", "email", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "email"], ["type", "password", "id", "password1", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["type", "password", "id", "password2", "required", "", 1, "form-control", "form-control-sm", "validate", "inputRegister"], ["data-error", "wrong", "data-success", "right", "for", "password2"], [1, "text-center", "form-sm", "mt-2"], ["id", "createUserBtn", "disabled", "", 1, "btn", "btn-primary", "btn-block"], ["id", "responseMSG", 1, "response"], ["id", "exampleModal", "tabindex", "-1", "aria-labelledby", "exampleModalLabel", "aria-hidden", "true", 1, "modal", "fade"], [1, "modal-dialog"], [1, "modal-header"], ["type", "button", "data-dismiss", "modal", "aria-label", "Close", 1, "close"], ["aria-hidden", "true"], [1, "modal-body"], [1, "card", "mb-3", 2, "max-width", "540px"], [1, "row", "no-gutters"], [1, "col-md-4"], ["src", "https://randomuser.me/api/portraits/men/4.jpg", "alt", "...", 1, "rounded-circle", "userData", "card-img", 2, "width", "150px", "height", "150px"], [1, "col-md-8"], [1, "card-body"], [1, "card-title", "userData"], [1, "card-text"], [1, "text-muted", "userData"], [1, "card-text", "userData"], ["id", "listGamesOfUser", 2, "overflow-y", "scroll", "width", "500px", "height", "125px", "display", "flex", "flex-direction", "column-reverse"], [1, "text-center"], ["routerLink", "", "role", "button", 1, "btn", "btn-primary", "btn-lg", "m-2"], ["type", "button", 1, "btn", "btn-secondary", "btn-lg", "m-2"], ["id", "falseForm", 1, "needs-validation", 3, "submit"], [1, "form-group"], ["size", "1", "id", "torneoGame", "required", "", 1, "custom-select", "custom-select-lg", "mb-3", "formTourney"], ["value", ""], ["value", "dbz"], ["value", "hs"], ["value", "lol"], ["value", "ow"], ["value", "ssbm"], ["value", "ssbu"], ["type", "text", "id", "nomTorneo", "placeholder", "Ingresa el nombre del torneo...", "required", "", 1, "form-control", "formTourney"], [1, "invalid-tooltip"], [1, "form-row"], [1, "col-md-4", "mb-3"], ["type", "number", "id", "numTorneo", "placeholder", "Ingrese numero de jugadores", "required", "", 1, "form-control", "formTourney"], ["type", "date", "id", "fechaTorneo", "required", "", 1, "form-control", "formTourney"], ["type", "time", "id", "horaTorneo", "required", "", 1, "form-control", "formTourney"], ["type", "text", "id", "numTorneo", "placeholder", "Ingrese URL de imagen", "required", "", 1, "form-control", "formTourney"], [1, "invalid-feedback"], ["type", "text", "id", "dirTorneo", "placeholder", "indique la direccion del torneo", "required", "", 1, "form-control", "formTourney"], ["type", "submit", 1, "btn", "btn-primary"], ["id", "tourney", 1, "row", "justify-content-center"], [1, "col-8", "mt-2"], [1, "media", "col-11", "mt-2", "border", "text-center"], [1, "media-left", "align-self-center", "mr-3"], [1, "rounded-circle", "width", 2, "width", "200px", "height", "200px", 3, "src"], [1, "media-body"], [1, "align-self-center", "text-right", "bg-light", "mx-2"], ["id", "editTourney", "data-user", "", "data-toggle", "modal", "data-target", "#updateFormModal", 1, "btn", "btn-primary", "mt-2", 3, "click"], [1, "fas", "fa-pencil-alt", "edit"], ["id", "deleteTourney", "data-toggle", "modal", "data-target", "#deleteFormModal", 1, "btn", "btn-primary", "mt-2", 3, "click"], [1, "fas", "fa-trash-alt", "remove"]], template: function DetailComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "section", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -904,6 +964,7 @@ DetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 16);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "a", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DetailComponent_Template_a_click_20_listener() { return ctx.addUsertoTourney(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "i", 18);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1089,7 +1150,7 @@ DetailComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isAdmin);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.listTourney);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterLinkWithHref"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_z"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkZXRhaWwuY29tcG9uZW50LnNjc3MifQ== */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterLinkWithHref"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgForm"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ɵangular_packages_forms_forms_z"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkZXRhaWwuY29tcG9uZW50LnNjc3MifQ== */"] });
 
 
 /***/ }),
@@ -1701,6 +1762,223 @@ HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
 
 /***/ }),
 
+/***/ "DZ0t":
+/*!*********************************************************!*\
+  !*** ./src/app/components/profile/profile.component.ts ***!
+  \*********************************************************/
+/*! exports provided: ProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var src_app_common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/common/services/proyecto.service */ "TMDr");
+/* harmony import */ var src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/common/services/auth.service */ "AhZb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "ofXK");
+
+
+
+
+
+
+
+function ProfileComponent_div_19_Template(rf, ctx) { if (rf & 1) {
+    const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "form", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 24);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "h4");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Editar ususario");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "label", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Nombre");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](9, "input", 27);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "label", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](12, "Apellidos");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](13, "input", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "div", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "label", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](17, "Imagen(URL)");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](18, "input", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "div", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "label", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](21, "contrase\u00F1a");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](22, "input", 30);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "button", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ProfileComponent_div_19_Template_button_click_23_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r2); const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r1.cancelarEdit(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "Cancelar");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "button", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ProfileComponent_div_19_Template_button_click_25_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r2); const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r3.formUser(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](26, "Actualizar");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("formGroup", ctx_r0.formData);
+} }
+class ProfileComponent {
+    constructor(formBuilder, proyectoService, authService, router) {
+        this.formBuilder = formBuilder;
+        this.proyectoService = proyectoService;
+        this.authService = authService;
+        this.router = router;
+        this.formData = this.formBuilder.group({
+            nombre: [''],
+            apellidos: [''],
+            image: [''],
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].minLength(8)]],
+        });
+        this.user = {
+            apellidos: "",
+            email: "",
+            image: "",
+            nick: "",
+            nombre: "",
+        };
+        this.bandera2 = false;
+    }
+    ngOnInit() {
+        this.proyectoService.getUserbyId().then(res => {
+            console.log(res);
+            this.user = {
+                apellidos: res.apellidos,
+                email: res.email,
+                image: res.image,
+                nick: res.nick,
+                nombre: res.nombre,
+            };
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+    editbutton() {
+        this.bandera2 = true;
+    }
+    formUser() {
+        console.log("entra aqui");
+        let data = this.formData.value;
+        let dataUs = {
+            nombre: data.nombre == '' ? undefined : data.nombre,
+            apellidos: data.apellidos == '' ? undefined : data.apellidos,
+            image: data.image == '' ? undefined : data.image,
+            password: data.password == '' ? undefined : data.password
+        };
+        this.proyectoService.updateUser(dataUs).then(res => {
+            console.log("acutalizado", res);
+            this.bandera2 = false;
+            this.ngOnInit;
+        }).catch(err => {
+            console.log("no se pudo actualizar");
+            this.bandera2 = false;
+        });
+        //console.log("efe")
+    }
+    cancelarEdit() {
+        this.bandera2 = false;
+    }
+    logout() {
+        this.authService.logOut();
+        this.router.navigate(['/login']);
+    }
+}
+ProfileComponent.ɵfac = function ProfileComponent_Factory(t) { return new (t || ProfileComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_2__["ProyectoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"])); };
+ProfileComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ProfileComponent, selectors: [["app-profile"]], decls: 35, vars: 6, consts: [[1, "content"], ["id", "imgHome"], ["src", "../images/194477.png", "alt", "", "loading", "lazy", 1, "d-inline-block", "align-top"], [1, "container"], ["id", "listaUser", 1, "fb-profile"], ["align", "left", "alt", "Profile image example", 1, "fb-image-profile", "thumbnail", "rounded-lg", 3, "src"], [1, "row", "d-flex", "justify-content-between", "align-items-center"], [1, "fb-profile-text", "col"], [1, "col"], ["type", "button", 1, "btn", "btn-outline-secondary", "btn-lg", "mx-3", "my-1", 3, "click"], ["type", "button", 1, "btn", "btn-outline-danger", "btn-lg", "mx-3", "my-1", 3, "click"], ["class", "container ", 4, "ngIf"], [1, "row", "justify-content-center", "my-3"], [1, "row", "justify-content-center"], ["id", "listGamesAccount", 1, "", 2, "overflow-y", "scroll", "width", "70%", "height", "125px", "display", "flex", "flex-direction", "column-reverse"], [1, "media"], ["src", "https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_DragonBallFighterZ_image1600w.jpg", "alt", "...", 1, "mr-3", 2, "width", "30px", "height", "30px"], [1, "media-body", "border-1"], [1, "mt-0"], [1, "align-self-center", "text-right", "mx-2"], [1, "row"], ["id", "addParticipant", "data-toggle", "modal", "data-target", "#addFormModal", 1, "btn", "btn-primary", "mt-2"], [1, "fas", "fa-user-plus"], [1, "m-4", 3, "formGroup"], [1, "text-center", "my-3"], [1, "col", "form-group"], ["for", ""], ["type", "text", "name", "nombre", "id", "nombre", "name", "nombre", "required", "", "formControlName", "nombre", 1, "form-control", "col-8"], ["type", "text", "name", "apellidos", "id", "apellidos", "name", "apellidos", "required", "", "formControlName", "apellidos", 1, "form-control", "col-8"], ["type", "text", "name", "image", "id", "image", "name", "image", "required", "", "formControlName", "image", 1, "form-control", "col-8"], ["type", "password", "name", "password", "id", "password", "name", "password", "required", "", "formControlName", "password", 1, "form-control", "col-8"], ["type", "button", 1, "btn", "btn-primary", "mx-2", 3, "click"]], template: function ProfileComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "section", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "img", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "img", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "h5");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "div", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "button", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ProfileComponent_Template_button_click_15_listener() { return ctx.editbutton(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](16, "Editar Perfil");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "button", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ProfileComponent_Template_button_click_17_listener() { return ctx.logout(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Logout");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](19, ProfileComponent_div_19_Template, 27, 1, "div", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](20, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "h2");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](23, "Lista de Juegos");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "div", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](27, "img", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](28, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "h5", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](30, "Dragon Ball FighterZ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "div", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "a", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](34, "i", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpropertyInterpolate"]("src", ctx.user.image, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx.user.nick);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"]("", ctx.user.nombre, " ", ctx.user.apellidos, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx.user.email);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.bandera2);
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["RequiredValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormControlName"]], styles: [".fb-profile[_ngcontent-%COMP%]   img.fb-image-lg[_ngcontent-%COMP%] {\n  z-index: 0;\n  width: 100%;\n  margin-bottom: 10px;\n}\n.fb-image-profile[_ngcontent-%COMP%] {\n  margin: -90px 10px 0px 50px;\n  z-index: 9;\n  width: 20%;\n}\n@media (max-width: 768px) {\n  .fb-profile-text[_ngcontent-%COMP%]    > h1[_ngcontent-%COMP%] {\n    font-weight: 700;\n    font-size: 16px;\n  }\n\n  .fb-image-profile[_ngcontent-%COMP%] {\n    margin: -45px 10px 0px 25px;\n    z-index: 9;\n    width: 20%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uXFwuLlxcLi5cXC4uXFxwcm9maWxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzsrRUFBQTtBQUlHO0VBQ0ksVUFBQTtFQUNBLFdBQUE7RUFDQSxtQkFBQTtBQUFQO0FBR0c7RUFFSSwyQkFBQTtFQUNBLFVBQUE7RUFDQSxVQUFBO0FBRFA7QUFJRztFQUdBO0lBQ0ksZ0JBQUE7SUFDQSxlQUFBO0VBSEw7O0VBTUM7SUFFSSwyQkFBQTtJQUNBLFVBQUE7SUFDQSxVQUFBO0VBSkw7QUFDRiIsImZpbGUiOiJwcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cclxuICAgQXV0aG9yJ3MgY3VzdG9tIHN0eWxlc1xyXG4gICA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSAqL1xyXG4gICBcclxuICAgLmZiLXByb2ZpbGUgaW1nLmZiLWltYWdlLWxne1xyXG4gICAgICAgei1pbmRleDogMDtcclxuICAgICAgIHdpZHRoOiAxMDAlOyAgXHJcbiAgICAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gICB9XHJcbiAgIFxyXG4gICAuZmItaW1hZ2UtcHJvZmlsZVxyXG4gICB7XHJcbiAgICAgICBtYXJnaW46IC05MHB4IDEwcHggMHB4IDUwcHg7XHJcbiAgICAgICB6LWluZGV4OiA5O1xyXG4gICAgICAgd2lkdGg6IDIwJTsgXHJcbiAgIH1cclxuICAgXHJcbiAgIEBtZWRpYSAobWF4LXdpZHRoOjc2OHB4KVxyXG4gICB7XHJcbiAgICAgICBcclxuICAgLmZiLXByb2ZpbGUtdGV4dD5oMXtcclxuICAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7XHJcbiAgICAgICBmb250LXNpemU6MTZweDtcclxuICAgfVxyXG4gICBcclxuICAgLmZiLWltYWdlLXByb2ZpbGVcclxuICAge1xyXG4gICAgICAgbWFyZ2luOiAtNDVweCAxMHB4IDBweCAyNXB4O1xyXG4gICAgICAgei1pbmRleDogOTtcclxuICAgICAgIHdpZHRoOiAyMCU7IFxyXG4gICB9XHJcbiAgIH0iXX0= */"] });
+
+
+/***/ }),
+
 /***/ "H3jT":
 /*!**************************************************************!*\
   !*** ./src/app/components/layout/footer/footer.component.ts ***!
@@ -1804,18 +2082,26 @@ class ProyectoService {
         this.httpClient = httpClient;
         this.authService = authService;
     }
-    getUserbyId(uid) {
+    getUserbyId() {
         const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
             'content-type': 'application/json',
-            'x-auth-user': this.authService.getToken()
+            'Authorization': this.authService.getToken()
         });
-        const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/users/${uid}`;
+        const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/users?_id=${this.authService.getToken().split("-").pop()}`;
         return this.httpClient.get(url, { headers: hedersIn }).toPromise();
+    }
+    updateUser(user) {
+        const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+            'content-type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/users?_id=${this.authService.getToken().split("-").pop()}`;
+        return this.httpClient.put(url, user, { headers: hedersIn }).toPromise();
     }
     getTourneys() {
         const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
             'content-type': 'application/json',
-            'x-auth-user': this.authService.getToken()
+            'Authorization': this.authService.getToken()
         });
         const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/carousel?order=highlighted&limit=5`;
         return this.httpClient.get(url, { headers: hedersIn }).toPromise();
@@ -1823,7 +2109,7 @@ class ProyectoService {
     getTourneys2() {
         const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
             'content-type': 'application/json',
-            'x-auth-user': this.authService.getToken()
+            'Authorization': this.authService.getToken()
         });
         const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/carousel?order=old&limit=5`;
         return this.httpClient.get(url, { headers: hedersIn }).toPromise();
@@ -1831,7 +2117,7 @@ class ProyectoService {
     getTourneys3() {
         const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
             'content-type': 'application/json',
-            'x-auth-user': this.authService.getToken()
+            'Authorization': this.authService.getToken()
         });
         const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/carousel?order=next&limit=5`;
         return this.httpClient.get(url, { headers: hedersIn }).toPromise();
@@ -1839,7 +2125,7 @@ class ProyectoService {
     getTourneysFilter(filter, page) {
         const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
             'content-type': 'application/json',
-            'x-auth-user': this.authService.getToken()
+            'Authorization': this.authService.getToken()
         });
         const nfilter = (filter) ? `${filter}` : '';
         const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys?page=${page}&limit=3${nfilter}`;
@@ -1848,7 +2134,7 @@ class ProyectoService {
     updateTourney(id, data) {
         const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
             'content-type': 'application/json',
-            'x-auth-user': this.authService.getToken()
+            'Authorization': this.authService.getToken()
         });
         const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/${id}`;
         return this.httpClient.put(url, data, { headers: hedersIn }).toPromise();
@@ -1856,10 +2142,42 @@ class ProyectoService {
     getTourney(id) {
         const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
             'content-type': 'application/json',
-            'x-auth-user': this.authService.getToken()
+            'Authorization': this.authService.getToken()
         });
         const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/${id}`;
         return this.httpClient.get(url, { headers: hedersIn }).toPromise();
+    }
+    addTourney(tourney) {
+        const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+            'content-type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys?uid=${this.authService.getToken().split("-").pop()}`;
+        return this.httpClient.post(url, tourney, { headers: hedersIn }).toPromise();
+    }
+    updateMyTourney(tourney, tid) {
+        const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+            'content-type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/${tid}`;
+        return this.httpClient.put(url, tourney, { headers: hedersIn }).toPromise();
+    }
+    deleteTourney(tid) {
+        const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+            'content-type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/${tid}`;
+        return this.httpClient.delete(url, { headers: hedersIn }).toPromise();
+    }
+    addUserToTourney(tid) {
+        const hedersIn = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+            'content-type': 'application/json',
+            'Authorization': this.authService.getToken()
+        });
+        const url = `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl}api/tourneys/${tid}/participant/${this.authService.getToken().split("-").pop()}`;
+        return this.httpClient.put(url, { headers: hedersIn }).toPromise();
     }
 }
 ProyectoService.ɵfac = function ProyectoService_Factory(t) { return new (t || ProyectoService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"])); };
@@ -2265,7 +2583,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_layout_ngbd_modal_ngbd_modal_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/layout/ngbd-modal/ngbd-modal.component */ "7S+s");
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/login/login.component */ "W3Zi");
 /* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/register/register.component */ "XC3f");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _components_new_tourney_new_tourney_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/new-tourney/new-tourney.component */ "vKwm");
+/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/profile/profile.component */ "DZ0t");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
 
 
 
@@ -2289,8 +2611,8 @@ __webpack_require__.r(__webpack_exports__);
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]] });
-AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineInjector"]({ providers: [
+AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]] });
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵdefineInjector"]({ providers: [
         _common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_9__["ProyectoService"],
         {
             provide: 'SocialAuthServiceConfig',
@@ -2315,7 +2637,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineInjecto
             ng2_order_pipe__WEBPACK_IMPORTED_MODULE_4__["Ng2OrderModule"],
             _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_15__["NgbModule"]
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_21__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
         _components_home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"],
         _components_browser_browser_component__WEBPACK_IMPORTED_MODULE_11__["BrowserComponent"],
         _components_detail_detail_component__WEBPACK_IMPORTED_MODULE_12__["DetailComponent"],
@@ -2323,7 +2645,9 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_19__["ɵɵdefineInjecto
         _components_layout_footer_footer_component__WEBPACK_IMPORTED_MODULE_14__["FooterComponent"],
         _components_layout_ngbd_modal_ngbd_modal_component__WEBPACK_IMPORTED_MODULE_16__["NgbdModalComponent"],
         _components_login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"],
-        _components_register_register_component__WEBPACK_IMPORTED_MODULE_18__["RegisterComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _components_register_register_component__WEBPACK_IMPORTED_MODULE_18__["RegisterComponent"],
+        _components_new_tourney_new_tourney_component__WEBPACK_IMPORTED_MODULE_19__["NewTourneyComponent"],
+        _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_20__["ProfileComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
@@ -2393,7 +2717,7 @@ class HeaderComponent {
     }
 }
 HeaderComponent.ɵfac = function HeaderComponent_Factory(t) { return new (t || HeaderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_common_services_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"])); };
-HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HeaderComponent, selectors: [["app-header"]], decls: 17, vars: 3, consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "bg-dark", "nav-pills"], ["href", "/", 1, "navbar-brand"], ["src", "assets/194477.png", "width", "30", "height", "30", "alt", "", "loading", "lazy", 1, "d-inline-block", "align-top"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse"], [1, "navbar-nav"], ["routerLink", "/home", "title", "Home", 1, "nav-item", "nav-link", "active", "mx-2"], [1, "fas", "fa-home", "fa-lg"], ["class", "nav-item nav-link", "id", "addTourney", "data-toggle", "tooltip", "title", "Crear un torneo", "data-target", "#", 4, "ngIf"], ["routerLink", "/browser", "id", "search", "title", "Torneos", 1, "nav-item", "nav-link", "mx-2"], [1, "fas", "fa-trophy", "fa-lg"], ["href", "https://www.facebook.com/groups/GamingITESO", "title", "Facebook", 1, "nav-item", "nav-link", "mx-2"], [1, "fab", "fa-facebook-f", "fa-lg"], ["href", "https://discord.gg/Z37ydDqw", "title", "Discord", 1, "nav-item", "nav-link", "mx-2"], [1, "fab", "fa-discord", "fa-lg"], ["class", "nav-item nav-link mx-2", "id", "user-status", "title", "User Acount", 4, "ngIf"], ["class", "nav-item nav-link mx-2", "routerLink", "/login", "id", "user-status", "title", "User Acount", 4, "ngIf"], ["id", "addTourney", "data-toggle", "tooltip", "title", "Crear un torneo", "data-target", "#", 1, "nav-item", "nav-link"], [1, "fas", "fa-plus", "fa-lg"], ["id", "user-status", "title", "User Acount", 1, "nav-item", "nav-link", "mx-2"], [1, "fas", "fa-user-circle", "fa-lg"], ["routerLink", "/login", "id", "user-status", "title", "User Acount", 1, "nav-item", "nav-link", "mx-2"], [1, "fas", "fa-sign-in-alt"]], template: function HeaderComponent_Template(rf, ctx) { if (rf & 1) {
+HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HeaderComponent, selectors: [["app-header"]], decls: 17, vars: 3, consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "bg-dark", "nav-pills"], ["href", "/", 1, "navbar-brand"], ["src", "assets/194477.png", "width", "30", "height", "30", "alt", "", "loading", "lazy", 1, "d-inline-block", "align-top"], ["id", "navbarNavAltMarkup", 1, "collapse", "navbar-collapse"], [1, "navbar-nav"], ["routerLink", "/home", "title", "Home", 1, "nav-item", "nav-link", "active", "mx-2"], [1, "fas", "fa-home", "fa-lg"], ["class", "nav-item nav-link", "id", "addTourney", "data-toggle", "tooltip", "title", "Crear un torneo", "routerLink", "/newTourney", 4, "ngIf"], ["routerLink", "/browser", "id", "search", "title", "Torneos", 1, "nav-item", "nav-link", "mx-2"], [1, "fas", "fa-trophy", "fa-lg"], ["href", "https://www.facebook.com/groups/GamingITESO", "title", "Facebook", 1, "nav-item", "nav-link", "mx-2"], [1, "fab", "fa-facebook-f", "fa-lg"], ["href", "https://discord.gg/Z37ydDqw", "title", "Discord", 1, "nav-item", "nav-link", "mx-2"], [1, "fab", "fa-discord", "fa-lg"], ["class", "nav-item nav-link mx-2", "id", "user-status", "routerLink", "/profile", "title", "User Acount", 4, "ngIf"], ["class", "nav-item nav-link mx-2", "routerLink", "/login", "id", "user-status", "title", "User Acount", 4, "ngIf"], ["id", "addTourney", "data-toggle", "tooltip", "title", "Crear un torneo", "routerLink", "/newTourney", 1, "nav-item", "nav-link"], [1, "fas", "fa-plus", "fa-lg"], ["id", "user-status", "routerLink", "/profile", "title", "User Acount", 1, "nav-item", "nav-link", "mx-2"], [1, "fas", "fa-user-circle", "fa-lg"], ["routerLink", "/login", "id", "user-status", "title", "User Acount", 1, "nav-item", "nav-link", "mx-2"], [1, "fas", "fa-sign-in-alt"]], template: function HeaderComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 2);
@@ -2431,6 +2755,202 @@ HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
 
 /***/ }),
 
+/***/ "vKwm":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/new-tourney/new-tourney.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: NewTourneyComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewTourneyComponent", function() { return NewTourneyComponent; });
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var src_app_common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/common/services/proyecto.service */ "TMDr");
+/* harmony import */ var src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/common/services/auth.service */ "AhZb");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+
+
+
+
+
+
+class NewTourneyComponent {
+    constructor(formBuilder, proyectoService, authService, router) {
+        this.formBuilder = formBuilder;
+        this.proyectoService = proyectoService;
+        this.authService = authService;
+        this.router = router;
+        this.formNewTourney = this.formBuilder.group({
+            juego: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            nombreTorneo: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
+            jugadores: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].email]],
+            costo: [10, [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
+            fechaI: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required,]],
+            fechaF: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
+            hora: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
+            logo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
+            address: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required]],
+        });
+    }
+    ngOnInit() {
+    }
+    formNtourney() {
+        let formTourn = document.getElementById('falseForm');
+        let list = formTourn.querySelectorAll('.formTourney');
+        console.log(list);
+        this.createTourney(list);
+    }
+    createTourney(valforms) {
+        let tourney = {
+            nombre: valforms[1].value,
+            juego: valforms[0].value,
+            fechai: valforms[4].value,
+            fechaf: valforms[5].value,
+            hora: valforms[6].value,
+            limit: +valforms[2].value,
+            cost: +valforms[3].value,
+            place: valforms[8].value,
+            plat: "https://seeklogo.com/images/M/minecraft-logo-5EAD3A1535-seeklogo.com.png",
+            image: valforms[7].value,
+        };
+        console.log(tourney);
+        this.proyectoService.addTourney(tourney).then(res => {
+            console.log("respuesta de guardado");
+            console.log(res);
+            this.router.navigate(['/browser']);
+        }).catch(err => {
+            console.log("respuesta de error");
+            console.log(err);
+        });
+    }
+}
+NewTourneyComponent.ɵfac = function NewTourneyComponent_Factory(t) { return new (t || NewTourneyComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_common_services_proyecto_service__WEBPACK_IMPORTED_MODULE_2__["ProyectoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_common_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"])); };
+NewTourneyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: NewTourneyComponent, selectors: [["app-new-tourney"]], decls: 74, vars: 1, consts: [[1, "content"], [3, "formGroup", "submit"], ["id", "falseForm", 1, "textHome"], ["id", "addTourneyF"], ["size", "1", "id", "torneoGame", "required", "", 1, "custom-select", "custom-select-lg", "mb-3", "formTourney"], ["value", ""], ["value", "609850ec1b6352c7e492b9e0"], ["value", "6098510f1b6352c7e492b9e1"], ["value", "609851241b6352c7e492b9e2"], ["value", "609851331b6352c7e492b9e3"], ["value", "609851431b6352c7e492b9e4"], ["value", "6098514c1b6352c7e492b9e5"], [1, "form-group"], ["type", "text", "id", "nomTorneo", "placeholder", "Ingresa el nombre del torneo...", "required", "", 1, "form-control", "formTourney"], [1, "invalid-tooltip"], [1, "form-row"], [1, "col-md-4", "mb-3"], ["type", "number", "id", "numTorneo", "placeholder", "Ingrese numero de jugadores", "required", "", 1, "form-control", "formTourney"], ["type", "number", "id", "precio", "placeholder", "Ingrese costo", "required", "", 1, "form-control", "formTourney"], ["type", "date", "id", "fechaTorneo", "required", "", 1, "form-control", "formTourney"], ["type", "time", "id", "horaTorneo", "required", "", 1, "form-control", "formTourney"], ["type", "text", "id", "dirTorneo", "placeholder", "indique el logo del torneo", "required", "", 1, "form-control", "formTourney"], ["type", "text", "id", "dirTorneo", "placeholder", "indique la direcci\u00F3n del torneo (Ubicacion)", 1, "form-control", "formTourney"], ["id", "controlbtnForm", 1, "btn", "btn-success"]], template: function NewTourneyComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "form", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("submit", function NewTourneyComponent_Template_form_submit_1_listener() { return ctx.formNtourney(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "h1");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4, "Agregar un torneo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](7, "Juego:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "select", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "option", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10, "Escoge que juego se jugara en tu torneo...");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "option", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](12, "Dragon Ball FighterZ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "option", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](14, "HearthStone");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "option", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](16, "League Of Legends");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "option", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Overwatch");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "option", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](20, "Super Smash Bros. Melee");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "option", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](22, "Super Smash Bros. Ultimate");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25, "Nombre del torneo:");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](26, "input", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, " Ingrese un nombre valido ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](32, "# maximo de jugadores");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](33, "input", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](35, " Ingrese numero de jugadores ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](38, "Costo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](39, "input", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](41, " Costo del evento ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](43, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](44, "Fecha de inicio");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](45, "input", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](46, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](47, " Ingrese una fecha valida ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](48, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](49, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](50, "Fecha de terminacion");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](51, "input", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](53, " Ingrese una fecha valida ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](54, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](55, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](56, "Hora");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](57, "input", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](58, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](59, " Ingrese una hora valida ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](60, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](61, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](62, "Logo para tu torneo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](63, "input", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](64, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](65, "No es valido");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](66, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](67, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](68, "Direcci\u00F3n (puedes poner online)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](69, "input", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](70, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](71, "No es valido");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](72, "button", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](73, "Crear Torneo");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("formGroup", ctx.formNewTourney);
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_ba"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_0__["ɵangular_packages_forms_forms_z"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJuZXctdG91cm5leS5jb21wb25lbnQuc2NzcyJ9 */"] });
+
+
+/***/ }),
+
 /***/ "vY5A":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -2447,7 +2967,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_detail_detail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/detail/detail.component */ "151J");
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/login/login.component */ "W3Zi");
 /* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/register/register.component */ "XC3f");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _components_new_tourney_new_tourney_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/new-tourney/new-tourney.component */ "vKwm");
+/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/profile/profile.component */ "DZ0t");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
 
 
 
@@ -2463,13 +2987,15 @@ const routes = [
     { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_5__["RegisterComponent"] },
     { path: 'browser', component: _components_browser_browser_component__WEBPACK_IMPORTED_MODULE_2__["BrowserComponent"] },
     { path: 'detail', component: _components_detail_detail_component__WEBPACK_IMPORTED_MODULE_3__["DetailComponent"] },
+    { path: 'newTourney', component: _components_new_tourney_new_tourney_component__WEBPACK_IMPORTED_MODULE_6__["NewTourneyComponent"] },
+    { path: 'profile', component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_7__["ProfileComponent"] }
 ];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
+AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
 
 
 /***/ }),
